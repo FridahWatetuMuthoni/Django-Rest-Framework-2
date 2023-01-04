@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # installed apps
     'rest_framework',
+    # for Token authorization
+    'rest_framework.authtoken',
     # custom app
     'business.apps.BusinessConfig',
     'api.apps.ApiConfig'
@@ -117,3 +119,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # User
 AUTH_USER_MODEL = 'business.User'
+
+# Authentication Configurations
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # for Token authorization
+        'rest_framework.authentication.TokenAuthentication',
+        # for jwt authentication
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
